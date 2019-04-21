@@ -111,11 +111,13 @@
   }
   ```
   ---
-- `Constant` names should be in `PascalCase`.
+- `Constant`, `Static` and `Readonly` field names should be in `PascalCase`.
   ```csharp
   public class ExampleClass 
   {
     private const int ConstantNumber;
+    private readonly int ReadonlyNumber;
+    private static int StaticNumber;
     private int variableNumber;
   }
   ```
@@ -363,19 +365,19 @@
 - If you have a variable that should be same for all instances of that object when it's modified, use `static` keyword. 
 
   ```csharp
-  private static int count; 
+  private static int Count; 
   ```
   ---
 - If you have a variable that should only be read and it's value should never be modified, use `const` keyword.
 
   ```csharp
-  private const int capacity;
+  private const int Capacity;
   ```
   --- 
 - If you have a variable that should be read, but it's value is decided when the object is constructed, use `readonly` keyword.
 
   ```csharp
-  private readonly int capacity;
+  private readonly int Capacity;
   ```
   ---
 - Cache the members or properties you use inside loops.
