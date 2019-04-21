@@ -301,7 +301,7 @@
   ---
 - Do not overuse `var` type, especialy when the type of the variable is obvious. Use it for long local variable types and `dynamic (anonymous)` types.
 
-  ```
+  ```csharp
   var empty = new EmptyInventoryItemContainer();
 
   var jsonPayload = new
