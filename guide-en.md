@@ -431,7 +431,28 @@
   }
   ```
   ---
-- Avoid using Coroutines for animations. Simply use Unity `Animator` and `Animation`s to do such tasks.
+- Avoid using `foreach loops` where you have very long arrays or lists to iterate through, and use `for loops`. Foreach loops generate a small about of garbage.
 
   ---
-- Avoid using `foreach loops` where you have very long arrays or lists to iterate through, and use `for loops`. Foreach loops generate a small about of garbage.
+## Coroutines
+
+- Avoid using Coroutines for animations. Simply use Unity `Animator` and `Animation`s to do such tasks.
+  ---
+- If you are going to implement a control mechanism for Coroutines, do not use Strings in order to identify methods that return IEnumerator. You can use the capsulated type Coroutine to do such tasks.
+
+ ```csharp
+ private Coroutine patrolCheck = null;
+ 
+ private void SomeMethod()
+ {
+    // Start a corotuine. StartCoroutine returns a Coroutine instance that you can store.
+    patrolCheck = StartCoroutine(MyCoroutine());
+    
+    // Null check provides information about whether the routine is running or not. 
+    // As long as you make sure you null out the stored reference once it is done running.
+    if(patrolCheck != null)
+        StopCoroutine(patrolCheck); // Stop the execution of the routine.
+ }
+ 
+ ---
+ ```
